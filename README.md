@@ -13,6 +13,6 @@ This would be available to actual use for anyone as it would be deployed.
 ### (------ technical details start -----------)
 1. Root dir has python venv (since flask is used for backend), gitignore, Readme file, requirements.txt 
 2. backend directory has structure per flask convention where in app.py is the entry point for the applcation
-3. 
+3. hello
 ### (------ technical details end -----------)
 # The app is deployed on: (yaha link dalunga)
