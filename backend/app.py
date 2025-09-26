@@ -2,9 +2,18 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 
+#instance or object of Flask- our App
 app = Flask(__name__)
 
-# inisde app object, set up key-value pairs in dictionary to use 
+# inisde app object, set up key-value pairs in dictionary to use a databse
+app.config['SQLALCHEMY_DATABASE_URI'] = ""
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = "" #A key for maintaining sessions.
+
+#instance or object of SQL_Alchemy - database 
+db = SQLAlchemy(app)
+#instance or object of Flask_Bcrypt to access encryption methods
+bcrypt = Bcrypt(app)
 
 #route for the home page
 @app.route("/")
