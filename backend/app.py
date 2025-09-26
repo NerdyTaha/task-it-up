@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template 
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -6,9 +7,10 @@ from flask_bcrypt import Bcrypt
 app = Flask(__name__)
 
 # inisde app object, set up key-value pairs in dictionary to use a databse
-app.config['SQLALCHEMY_DATABASE_URI'] = ""
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = "" #A key for maintaining sessions.
+#A key for maintaining sessions.
+app.config['SECRET_KEY'] = os.getenv("SECRET_KEY") 
 
 #instance or object of SQL_Alchemy - database 
 db = SQLAlchemy(app)

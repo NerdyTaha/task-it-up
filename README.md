@@ -10,6 +10,7 @@ The password will be secured in a database and encrypted.
 Session maintenance, cache, clearance, log-in again, etc would happen. 
 This would be available to actual use for anyone as it would be deployed.
 
+Dependencies are added in the python requirements.txt file.
 ### (------ technical details start -----------)
 1. Root dir has python venv (since flask is used for backend), gitignore, Readme file, requirements.txt 
 2. backend directory has structure per flask convention where in app.py is the entry point for the applcation
