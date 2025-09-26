@@ -1,0 +1,9 @@
+1. Firstly, set up simple HTML index file for Sign-in. Also a link for creating new account
+redirecting to register yourself page. 
+
+2. Create a backend (here, with flask) an app.py file which acts as entry point for the application. 
+
+3. Set up basic routing and basic structure of the app. 
+Now things work but user can't actually get-into the system because credentials are not stored yet. 
+
+4. 
