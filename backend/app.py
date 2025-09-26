@@ -2,6 +2,11 @@ import os
 from flask import Flask, render_template 
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from dotenv import load_dotenv
+from pathlib import Path
+# explicitly load .env from project root
+env_path = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
 
 #instance or object of Flask- our App
 app = Flask(__name__)
