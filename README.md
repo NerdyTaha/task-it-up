@@ -16,4 +16,10 @@ Dependencies are added in the python requirements.txt file.
 2. backend directory has structure per flask convention where in app.py is the entry point for the applcation
 3. Tech stack used: HTML, CSS, Python, Flask, SQLite(SQLAlchemy), 
 ### (------ technical details end -----------)
+### (app design start)
+- The app would have a home-page (for logging-in) or registering
+- Upon being entered inside the app (either by logging in or cache-session), the tasks would be shown 
+- The user would be allowed to have 15 tasks. Each task would have a delete button beside it.
+- Upon ticking checkbox, there would strike-through across the whole task. And it would move down. Undone tasks would be on top.
+### (app design end)
 # The app is deployed on: (yaha link dalunga)

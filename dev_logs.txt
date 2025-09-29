@@ -6,4 +6,9 @@ redirecting to register yourself page.
 3. Set up basic routing and basic structure of the app. 
 Now things work but user can't actually get-into the system because credentials are not stored yet. 
 
-4. 
+4. In directories models, routes, created a __init__.py file, which tells python to treat such directories 
+as packages. Which would help in importing other python modules inside those directories. 
+
+5. Making ORM tables in the models/ directory. Which would map to actual SQL tables. 
+
+6. 
