@@ -16,7 +16,7 @@ Dependencies are added in the python requirements.txt file.
 2. backend directory has structure per flask convention where in app.py is the entry point for the applcation
 3. Tech stack used: HTML, CSS, Python, Flask, SQLite(SQLAlchemy), 
 4. The task details should persist, hence would be stored on DB. Completion boolean, addition, deletion would be triggered by 3 buttons (tickbox,+ button, delete button)
-5. some contri 
+5. 
 ### (------ technical details end -----------)
 ### (app design start)
 - The app would have a home-page (for logging-in) or registering
