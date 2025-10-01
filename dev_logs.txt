@@ -12,6 +12,7 @@ Now things work but user can't actually get-into the system because credentials 
 as packages. Which would help in importing other python modules inside those directories. 
 
 5. Making ORM tables (classes) in the models/ directory. Which would map to actual SQL tables. 
-(Yet to modify the models (user.py and all) and also to create the actual database, then have to associate
-those tables with the form on the frontend.)
-6. 
+Actual sql tables would be stored in a DB file.
+
+6. Alos setting up flask-migrate. Database migrations are important to have if there's evolving schema.
+
