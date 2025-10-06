@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template 
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from flask_migrate import Migrate
 from dotenv import load_dotenv
 from pathlib import Path
 # explicitly load .env from project root
@@ -21,6 +22,8 @@ app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 db = SQLAlchemy(app)
 #instance or object of Flask_Bcrypt to access encryption methods
 bcrypt = Bcrypt(app)
+# create Flask migrate instance 
+migrate = Migrate(app, db)
 
 #route for the home page
 @app.route("/")
