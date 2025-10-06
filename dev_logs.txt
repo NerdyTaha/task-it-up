@@ -29,4 +29,12 @@ user and task python modules. backend/models/__init__.py imports the models from
 where the models actually live and flask also understands the structure of the models. 
 (init.py basically serves as table of contents for all the models so alembic can locate where models actually are to do migration tasks)
 
-8. 
+8. In the root directory, changed the overall structure of app.py to create a factory function called create_app()
+This function will create an app instance whenever invoked. It could be used for setting up our app with different configurations. 
+It could also be used for differen environments like dev, staging, prod. 
+
+9. For flask migrate to work, flask needs to know which app to associate database with. 
+In prod environments, flask db migrate and all is never used. Instead a WSGI server is used for python 
+applications. 
+Hence, for dev environment, setting up .flaskenv so that flask knows which app to access for DB.
+
