@@ -41,3 +41,7 @@ Since this is for developer convenience, it can be versioned and stored on remot
 
 10. Initialised db with flask commands. Also used flask migrate command. With flask upgrade migrate script executed and were applied.
 Migrations/folder was created. Pushing it to git. Since changes to DB structure will be recorded there.
+
+11. Improved instantiation of flask app to include templates and static_folder. 
+
+12. Now have to hanlde "POST" logic when user sends data through form. Then validate it and add to the DB.
