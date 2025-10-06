@@ -39,3 +39,5 @@ applications.
 Hence, for dev environment, setting up .flaskenv so that flask knows which app to access for DB.
 Since this is for developer convenience, it can be versioned and stored on remote repo as it has no secrets.
 
+10. Initialised db with flask commands. Also used flask migrate command. With flask upgrade migrate script executed and were applied.
+Migrations/folder was created. Pushing it to git. Since changes to DB structure will be recorded there.
