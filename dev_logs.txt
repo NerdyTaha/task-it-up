@@ -37,4 +37,5 @@ It could also be used for differen environments like dev, staging, prod.
 In prod environments, flask db migrate and all is never used. Instead a WSGI server is used for python 
 applications. 
 Hence, for dev environment, setting up .flaskenv so that flask knows which app to access for DB.
+Since this is for developer convenience, it can be versioned and stored on remote repo as it has no secrets.
 
