@@ -4,7 +4,12 @@ from backend.extensions import db, bcrypt, migrate
 from backend.models import user, task
 
 def create_app():
-    app = Flask(__name__) #instance or object of Flask- our App
+    #instance or object of Flask- our App
+    app = Flask(
+    __name__,
+    template_folder="backend/templates",
+    static_folder="backend/static"
+    )
 
     # app object needs to have key-value pairs of env variables
     app.config.from_mapping(
