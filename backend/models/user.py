@@ -1,5 +1,5 @@
 from backend.app import db, bcrypt
-from sqlalchemy.orm import relationship 
+from sqlalchemy.orm import relationship
 
 class User(db.Model):
     __tablename__ = "users"

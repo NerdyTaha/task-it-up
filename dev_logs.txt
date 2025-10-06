@@ -11,9 +11,16 @@ Now things work but user can't actually get-into the system because credentials 
 4. In directories models, routes, created a __init__.py file, which tells python to treat such directories 
 as packages. Which would help in importing other python modules inside those directories. 
 
-5. Making ORM tables (classes) in the models/ directory. Which would map to actual SQL tables. 
-Actual sql tables would be stored in a DB file.
+5. Making ORM tables (classes) in the models/ directory. Then setting up (by shell commands) flask migrate 
+which would keep track of changes in DB (schema evolution.)
+While developing locally, DB is stored in a .db file inside the repo. 
+When deploying, DB is stored safely to prevent from attacks. 
 
-6. Alos setting up flask-migrate. Database migrations are important to have if there's evolving schema.
+6. Then, in a python shell, executing commands to create tables (only need to to this once). 
+Flask migrate will make sure all changes in Database are stored in migrations files. These changes 
+will be imported if someone else tries to run the app (maybe when pulling from git or running the code
+on prod server) 
+Migration files are in sequence (so start to end changes will be executed in the DB to have up to date DB)
+(Flask migrate, flask migrate update, etc, these sort of commnands are there to ensure DB consistency in all places)
 
 7. 
