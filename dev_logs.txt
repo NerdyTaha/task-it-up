@@ -23,4 +23,10 @@ on prod server)
 Migration files are in sequence (so start to end changes will be executed in the DB to have up to date DB)
 (Flask migrate, flask migrate update, etc, these sort of commnands are there to ensure DB consistency in all places)
 
-7. 
+7. Set up extensions.py in backend directory to avoid circular import. Also did set up /backend/models/init.py so 
+flask migrate (and alembic underneath the hood) knows where to the models live. Models are defined inside of
+user and task python modules. backend/models/__init__.py imports the models from those modules. Hence flask knows 
+where the models actually live and flask also understands the structure of the models. 
+(init.py basically serves as table of contents for all the models so alembic can locate where models actually are to do migration tasks)
+
+8. 
