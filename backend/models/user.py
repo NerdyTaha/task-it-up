@@ -1,4 +1,4 @@
-from backend.app import db, bcrypt
+from app import db, bcrypt
 from sqlalchemy.orm import relationship
 
 class User(db.Model):
