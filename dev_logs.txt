@@ -16,3 +16,4 @@ Actual sql tables would be stored in a DB file.
 
 6. Alos setting up flask-migrate. Database migrations are important to have if there's evolving schema.
 
+7. 
