@@ -3,10 +3,12 @@ from flask import Flask, render_template
 from backend.extensions import db, bcrypt, migrate
 from backend.models import user, task
 
+# this is a factory function, whenever create_app is called, an instance of our app is created
 def create_app():
     #instance or object of Flask- our App
     app = Flask(
-    __name__,
+    #name tells flask where the Flask app lives. Where does the app start from
+    __name__, #this tells flask that flask the name of module where Flask class was imported, here it's the current module: app.
     template_folder="backend/templates",
     static_folder="backend/static"
     )
