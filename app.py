@@ -43,6 +43,8 @@ def create_app():
             password = request.form.get("password")
 
             #check if the user already exists
+            existing_user = User.query.filter_by(email=email).first()
+            
 
 
         return render_template("register.html")
