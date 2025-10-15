@@ -32,7 +32,7 @@ def create_app():
 
     #setting the endpoint as 'sign-in' rather than the default function name
     #url_for() in flask uses endpoint names and not URL's.
-    @app.route("/sign-in", endpoint="sign-in")
+    @app.route("/sign-in", endpoint="sign_in")
     def sign_in():
         return render_template("sign-in.html")
 
@@ -48,8 +48,12 @@ def create_app():
                 flash("User already exists. Try loggin in.")
                 return redirect(url_for(sign_in))
             
-
-
+            #create a new user
+            new_user = User(email=email, password=password)
+            db.session.add(new_user)
+            db.session.commit()
+            flash("Registration successful, you can sign in now!")
+            return redirect(url_for(sign_in))
 
         return render_template("register.html")
 
