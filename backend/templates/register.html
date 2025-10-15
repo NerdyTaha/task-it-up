@@ -7,7 +7,7 @@
     <body>
         <center>
             <h1> Set up an account</h1>
-            <form>
+            <form method="post" action="{{ url_for('register') }}">
                 <input type="email" name="email" placeholder="Enter your email" required><br><br>
                 <input type="password" name="password" placeholder="Enter your password" required><br><br>
                 <input type="password" name="confirm password" placeholder="Confirm password" required><br><br>
