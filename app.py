@@ -26,13 +26,14 @@ def create_app():
     migrate.init_app(app, db)
 
     #Register all the routes
-    @app.route("/")
+    @app.route("/", endpoint="home")
     def home():
-        return render_template("sign-in.html")
+        return render_template("home.html")
 
     #setting the endpoint as 'sign-in' rather than the default function name
     #url_for() in flask uses endpoint names and not URL's.
-    @app.route("/sign-in", methods=["GET", "POST"] ,endpoint="sign_in")
+    @app.route("/")
+    @app.route("/sign-in", methods=["GET", "POST"], endpoint="sign_in")
     def sign_in():
         if request.method == "POST":
             email = request.form.get("email")
