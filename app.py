@@ -32,8 +32,20 @@ def create_app():
 
     #setting the endpoint as 'sign-in' rather than the default function name
     #url_for() in flask uses endpoint names and not URL's.
-    @app.route("/sign-in", endpoint="sign_in")
+    @app.route("/sign-in", methods=["GET", "POST"] ,endpoint="sign_in")
     def sign_in():
+        if request.method == "POST":
+            email = request.form.get("email")
+            password = request.form.get("password")
+
+            user = User.query.filter_by(email=email).first()
+            if user and bcrypt.check_password_hash(user.password, password):
+                flash("Signed in successfully")
+                return redirect(url_for("home"))
+            else:
+                flash("invalid credentials! Please try again")
+                return redirect(url_for("sign_in"))
+
         return render_template("sign-in.html")
 
     @app.route("/register", methods=["GET", "POST"])
@@ -46,7 +58,7 @@ def create_app():
             existing_user = User.query.filter_by(email=email).first()
             if existing_user:
                 flash("User already exists. Try loggin in.")
-                return redirect(url_for(sign_in))
+                return redirect(url_for("sign_in"))
             
             #create a new user
             new_user = User(email=email, password=password)
