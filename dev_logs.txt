@@ -45,3 +45,11 @@ Migrations/folder was created. Pushing it to git. Since changes to DB structure 
 11. Improved instantiation of flask app to include templates and static_folder. 
 
 12. Now have to hanlde "POST" logic when user sends data through form. Then validate it and add to the DB.
+
+13. Added post logic: upon entry of credentials, data gets added and/or retrieved whilst being validated as well, 
+from the db.
+
+14. Adding sessions (cookies) and log-out routes. All routes will be moved to /backend/routes later.
+As of now, sessions won't expire. Later on, will set a time limit for it to expire. 
+
+15. 

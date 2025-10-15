@@ -28,11 +28,15 @@ def create_app():
     #Register all the routes
     @app.route("/", endpoint="home")
     def home():
-        return render_template("home.html")
+        #check if session is existant or not
+        if "user_id" not in session:
+            flash("Please sign in again to access the homepage")
+            return redirect(url_for("sign_in"))
+        
+        return render_template("home.html", email=session.get("email"))
 
     #setting the endpoint as 'sign-in' rather than the default function name
     #url_for() in flask uses endpoint names and not URL's.
-    @app.route("/")
     @app.route("/sign-in", methods=["GET", "POST"], endpoint="sign_in")
     def sign_in():
         if request.method == "POST":
@@ -41,8 +45,10 @@ def create_app():
 
             user = User.query.filter_by(email=email).first()
             if user and bcrypt.check_password_hash(user.password, password):
+                #create a session 
                 session["user_id"] = user.id
                 session["email"] = user.email
+                #success
                 flash("Signed in successfully")
                 return redirect(url_for("home"))
             else:
@@ -72,6 +78,11 @@ def create_app():
 
         return render_template("register.html")
 
+    @app.route("/logout")
+    def logout():
+        session.clear()
+        flash("You have been logged out!")
+        return redirect(url_for("sign_in"))
     return app
 
 # run the app only when executed stand-alone as a script and not when imported as a module
