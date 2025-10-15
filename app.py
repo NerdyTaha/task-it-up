@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from backend.extensions import db, bcrypt, migrate
 from backend.models import User, Task
 
@@ -41,6 +41,8 @@ def create_app():
 
             user = User.query.filter_by(email=email).first()
             if user and bcrypt.check_password_hash(user.password, password):
+                session["user_id"] = user.id
+                session["email"] = user.email
                 flash("Signed in successfully")
                 return redirect(url_for("home"))
             else:
