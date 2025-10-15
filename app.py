@@ -44,7 +44,11 @@ def create_app():
 
             #check if the user already exists
             existing_user = User.query.filter_by(email=email).first()
+            if existing_user:
+                flash("User already exists. Try loggin in.")
+                return redirect(url_for(sign_in))
             
+
 
 
         return render_template("register.html")
