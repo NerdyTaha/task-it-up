@@ -8,7 +8,7 @@ def create_app():
     #instance or object of Flask- our App
     app = Flask(
     #name tells flask where the Flask app lives. Where does the app start from
-    __name__, #this tells flask that flask the name of module where Flask class was imported, here it's the current module: app.
+    __name__, #this tells flask the name of module where Flask class was imported, here it's the current module: app.
     template_folder="backend/templates",
     static_folder="backend/static"
     )
