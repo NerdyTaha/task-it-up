@@ -29,14 +29,12 @@ def create_app():
     @app.route("/", endpoint="home")
     def home():
         #check if session is existant or not
-        if "user_id" not in session:
+        if "user_id" not in session: 
             flash("Please sign in again to access the homepage")
             return redirect(url_for("sign_in"))
         
         return render_template("home.html", email=session.get("email"))
 
-    #setting the endpoint as 'sign-in' rather than the default function name
-    #url_for() in flask uses endpoint names and not URL's.
     @app.route("/sign-in", methods=["GET", "POST"], endpoint="sign_in")
     def sign_in():
         if request.method == "POST":

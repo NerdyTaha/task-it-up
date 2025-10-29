@@ -3,7 +3,7 @@
 1. Firstly, set up simple HTML index file for Sign-in. Also a link for creating new account
 redirecting to register yourself page. 
 
-2. Create a backend (here, with flask) an app.py file which acts as entry point for the application. 
+2. Created a backend (here, with flask) an app.py file which acts as entry point for the application. 
 
 3. Set up basic routing and basic structure of the app. 
 Now things work but user can't actually get-into the system because credentials are not stored yet. 
@@ -24,14 +24,14 @@ Migration files are in sequence (so start to end changes will be executed in the
 (Flask migrate, flask migrate update, etc, these sort of commnands are there to ensure DB consistency in all places)
 
 7. Set up extensions.py in backend directory to avoid circular import. Also did set up /backend/models/init.py so 
-flask migrate (and alembic underneath the hood) knows where to the models live. Models are defined inside of
+flask migrate (and alembic underneath the hood) knows where do the models live. Models are defined inside of
 user and task python modules. backend/models/__init__.py imports the models from those modules. Hence flask knows 
 where the models actually live and flask also understands the structure of the models. 
 (init.py basically serves as table of contents for all the models so alembic can locate where models actually are to do migration tasks)
 
 8. In the root directory, changed the overall structure of app.py to create a factory function called create_app()
 This function will create an app instance whenever invoked. It could be used for setting up our app with different configurations. 
-It could also be used for differen environments like dev, staging, prod. 
+It could also be used for different environments like dev, staging, prod. 
 
 9. For flask migrate to work, flask needs to know which app to associate database with. 
 In prod environments, flask db migrate and all is never used. Instead a WSGI server is used for python 
@@ -39,7 +39,7 @@ applications.
 Hence, for dev environment, setting up .flaskenv so that flask knows which app to access for DB.
 Since this is for developer convenience, it can be versioned and stored on remote repo as it has no secrets.
 
-10. Initialised db with flask commands. Also used flask migrate command. With flask upgrade migrate script executed and were applied.
+10. Initialised db with flask commands. Also used flask migrate command. With "flask upgrade", migrate scripts were executed and applied.
 Migrations/folder was created. Pushing it to git. Since changes to DB structure will be recorded there.
 
 11. Improved instantiation of flask app to include templates and static_folder. 
